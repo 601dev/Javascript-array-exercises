@@ -1,164 +1,177 @@
-// Exercise for Array
-// 1. Create an array of numbers and return the sum of all elements.
-// 2. Create an array of strings and return the length of the longest string.
-// 3. Create an array of numbers and find the average of all elements.
-// 4. Create an array of objects with key-value pairs and filter out objects with a specific key-value pair.
-// 5. Create an array of numbers and find the maximum value in the array.
-// 6. Create an array of strings and sort the array in alphabetical order.
-// 7. Create an array of numbers and find the index of a specific number in the array.
-// 8. Create an array of objects with key-value pairs and sort the array based on a specific key.
-// 9. Create two arrays of numbers and merge them into a single array.
-// 10. Create an array of strings and remove any duplicates from the array.
+// Sync & Async; Async Await; Callback; Promise; Fetch project
 
-// Ex-1
-// 1. Create an array of numbers and return the sum of all elements.
+// Exercise 1
 
-// const array = [5, 5, 5, 5];
+// var words = ["salom", "hayir", "bino", "avtomobil", "velosipedlar", "rels"];
+// var uzunSoz = words[0];
 
-// let sum = array.reduce(
-//   (accumulator, currentValue) => accumulator + currentValue,0,);
-
-// console.log(sum);
-
-// Exercise 2.
-// Create an array of strings and return the length of the longest string.
-
-// var bobur = ["ozbek", "programmist", "uylangan", "bir_ogil"];
-
-// let maxLength = 0;
-
-// bobur.forEach((word) => {
-//   if (word.length > maxLength) {
-//     maxLength = word.length;
+// for (let i = 0; i < words.length; i++) {
+//   if (words[i].length > uzunSoz.length) {
+//     uzunSoz = words[i];
 //   }
-// });
-
-// console.log("Length of the longest string:", maxLength);
-
-// var bobur = ["ozbek", "programmist", "uylangan", "bir_ogil"];
-
-// let maxLength = Math.max(...bobur.map((word) => word.length));
-
-// console.log("Length of the longest string:", maxLength);
-
-// Exercise 3 (solution 1) .
-// Create an array of numbers and find the average of all elements.
-
-// var joe_hattab = [3, 2, 7, 6, 5];
-
-// let find_average = 0;
-
-// for (i = 0; i < joe_hattab.length; i++) {
-//   find_average = find_average + joe_hattab[i];
 // }
 
-// console.log(find_average / 5);
+// console.log(`Eng uzun sozning uzunligi: ${uzunSoz}`);
 
-// (solution 2)
+// Exercise 2
 
-// var joe_hattab = [3, 2, 7, 6, 5];
+// var array = [
+//   {
+//     name: "Asadbek",
+//     surname: "Abduvoitov",
+//   },
+//   {
+//     name: "Arabboy",
+//     surname: "Abduvoitov",
+//   },
+//   {
+//     name: "Farruxbek",
+//     surname: "Abduvoitov",
+//   },
+// ];
 
-// let sum = joe_hattab.reduce(
-//   (accumulator, currentValue) => accumulator + currentValue,
-//   0,
+// function filterOutObject(array, object) {
+//   return array.filter((value) => {
+//     return value[object.key] !== object.value;
+//   });
+// }
+
+// console.log(filterOutObject(array, { key: "name", value: "Asadbek" }));
+
+// Exercise 3 - Alphabetical order checking
+
+// let people = [
+//   { name: "John", age: 18 },
+//   { name: "Toshmat", age: 17 },
+//   { name: "Holmat", age: 19 },
+//   { name: "Eshmat", age: 20 },
+// ];
+
+// const result = function (data, specific_key) {
+//   return data.sort((a, b) => {
+//     if (a.name < b.name) {
+//       return -1;
+//     }
+//     if (a.name > b.name) {
+//       return 1;
+//     }
+//     return 0;
+//   });
+// };
+// console.log(result(people, "name"));
+
+//Exercise 4 Class Extend Example
+
+// class Citizen {
+//   constructor(name, surname, address, age) {
+//     this.name = name;
+//     this.surname = surname;
+//     this.address = address;
+//     this.age = age;
+//     this.getFullName = function () {
+//       return `${this.name} ${this.surname}`;
+//     };
+//   }
+// }
+
+// class Imigrant extends Citizen {
+//   constructor(name, surname, address, age, work_address) {
+//     super(name, surname, address, age);
+//     this.work_address = work_address;
+//   }
+// }
+
+// class Student_Imigrant extends Citizen {
+//   constructor(name, surname, address, age, study_address) {
+//     super(name, surname, address, age);
+//     this.work_address = study_address;
+//   }
+// }
+
+// const CitizenOne = new Citizen("Asadbek", "Abduvoitov", "Namangan", "19");
+// const ImigrantOne = new Imigrant(
+//   "Arabboy",
+//   "Abduvoitov",
+//   "Toshkent",
+//   "23",
+//   "USA",
 // );
-// console.log(sum);
-
-// (solution 3)
-
-// Exercise - 4. Create an array of objects with key-value pairs and filter
-// out objects with a specific key-value pair.
-
-// var bobur = {
-//   name: "Muhammad",
-//   surname: "Aliev",
-//   age: 27,
-//   city: "Dubai",
-// };
-
-// var maryam = {
-//   name: "Maryam",
-//   surname: "Alieva",
-//   age: 1,
-//   city: "Dubai",
-// };
-
-// var family = [bobur, maryam];
-
-// var baby = family.filter((odam) => odam.age < 10);
-
-// console.log(baby);
-
-// Exercise 5.
-// Create an array of numbers and find the maximum value in the array.
-
-// var numbers = [12, 22, 30, 11, 99];
-
-// // let maxLength = Math.max(...bobur.map((word) => word.length));
-
-// let maxValue = Math.max(...numbers.map((number) => number));
-
-// console.log(maxValue);
-
-// Exercise 6.
-// Create an array of strings and sort the array in alphabetical order.
-
-// var strings = ["abror", "coco", "bobur", "diyor"];
-
-// console.log(strings.sort());
-// 7. Create an array of numbers and find the index of a specific number in the array.
-
-// var numbers = [9, 2, 5, 11, 100];
-
-// var index = numbers.indexOf(9);
-
-// console.log("index of number 9 is", index);
-
-// 8. Create an array of objects with key-value pairs and sort the array based on a specific key.
-
-// var Dubai = {
-//   country: "UAE",
-//   age: "300",
-//   language: "Arabic",
-// };
-
-// var Zogora = {
-//   country: "Morocco",
-//   age: "100",
-//   language: "Arabic",
-// };
-
-// var Florencia = {
-//   country: "Italy",
-//   age: "1000",
-//   language: "Italian",
-// };
-
-// var cities = [Dubai, Florencia, Zogora];
-
-// var rich_history = cities.sort((a, b) => Number(b.age) - Number(a.age));
-
-// console.log(rich_history);
-
-// 9. Create two arrays of numbers and merge them into a single array.
-
-// a = [5, 0, 10, 66];
-// b = [13, 44, 2, 0];
-
-// console.log([...a, ...b]);
-
-// 10. Create an array of strings and remove any duplicates from the array.
-
-// var arrayOfStrings = ["box", "mouse", "box", "cat"];
-
-// var remove_duplicates = arrayOfStrings.filter(
-//   (value, index, array) => array.indexOf(value) === index,
+// const StudentOne = new Student_Imigrant(
+//   "Bobur",
+//   "Aliev",
+//   "Dubai",
+//   "27",
+//   "Academic City",
 // );
 
-// console.log(remove_duplicates);
+// console.log(CitizenOne.getFullName());
+// console.log(StudentOne.getFullName());
+// console.log(ImigrantOne);
+// console.log(StudentOne);
 
-var arrayOfStrings = ["box", "mouse", "box", "cat"];
+// Exercise 5 Facebook example
 
-var remove_duplicates = [...new Set(arrayOfStrings)];
+// var ps = "asadbek123";
+// var email = "blabla@gmail.com";
 
-console.log(remove_duplicates);
+// function loginToFacebook(password, email, callback) {
+//   console.log("Sending request to backend...");
+//   setTimeout(() => {
+//     if (password === "asadbek123" && email === "blabla@gmail.com") {
+//       return callback("You logged in to your account");
+//     } else {
+//       return callback("Ooops something wrong. Password or email is wrong!");
+//     }
+//   }, 5000);
+// }
+
+// loginToFacebook(ps, email, (data) => {
+//   console.log(data);
+// });
+
+// Exercise 6 Promise Example
+
+// var pw = "123";
+// var email = "@mail.ru";
+
+// const promise = new Promise((resolve, reject) => {
+//   setTimeout(() => {
+//     if (pw === "123" && email === "@mail.ru") {
+//       resolve("You can enter to the website!");
+//     } else {
+//       reject("Oops something wrong!!!");
+//     }
+//   }, 5000);
+// });
+
+// promise
+//   .then((data) => {
+//     console.log(data);
+//   })
+//   .catch((error) => {
+//     console.log(error);
+//   })
+//   .finally(() => {
+//     console.log("Finally. We got a data!");
+//   });
+
+// Exercise 7 Fetch Example
+
+// function getIngredient(RecipeType) {
+//   fetch("https://api.sampleapis.com/recipes/recipes")
+//     .then((data) => {
+//       return data.json();
+//     })
+//     .then((data) => {
+//       console.log(
+//         data.filter((value) => {
+//           return value.title === RecipeType;
+//         })[0].ingredients,
+//       );
+//     })
+//     .catch((error) => {
+//       console.log(error);
+//     });
+// }
+
+// getIngredient("California Roll Sushi Bowls");
